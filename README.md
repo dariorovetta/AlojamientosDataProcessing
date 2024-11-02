@@ -1,65 +1,57 @@
-Aquí tienes un ejemplo de contenido para el archivo `README.md` que puedes utilizar en tu repositorio:
+Aquí tienes un `README.md` resumido pero completo:
 
 ---
 
 # AlojamientosDataProcessing
 
-**Script para procesar y transformar datos de alojamientos en formato CSV**
+**Repositorio para procesar datos de alojamientos y generar reservas aleatorias**
 
 ## Descripción
 
-Este repositorio contiene un script en Python para limpiar y transformar datos de un archivo CSV con información sobre alojamientos. Las operaciones incluyen eliminación de columnas irrelevantes, formateo de valores numéricos y de texto, reemplazo de texto, y generación de valores aleatorios para una columna de plataforma de publicación.
+Este proyecto incluye dos scripts en Python:
+- `alojamientos.py`: Procesa datos de alojamientos en un archivo CSV.
+- `generadorDeReservas.py`: Genera reservas aleatorias para estos alojamientos y las guarda en un archivo Excel.
 
 ## Requisitos
 
 - Python 3.x
-- Librerías necesarias: `pandas`
+- Librerías: `pandas`, `openpyxl`
 
-Puedes instalar las dependencias usando:
+Instala las dependencias ejecutando:
 ```bash
-pip install pandas
+pip install pandas openpyxl
 ```
-
-## Estructura del Proyecto
-
-- `alojamientos.py`: Script principal que realiza el procesamiento de datos.
-- `alojamientos.csv`: (Opcional) Archivo de ejemplo con datos para procesar, si quieres realizar pruebas.
-- `AlojamientosEditado.csv`: Archivo generado al final del procesamiento con los datos modificados.
 
 ## Uso
 
-1. **Clonar el repositorio**:
-   ```bash
-   git clone https://github.com/tu_usuario/AlojamientosDataProcessing.git
-   cd AlojamientosDataProcessing
-   ```
+### Procesamiento de Alojamientos (`alojamientos.py`)
 
-2. **Ejecutar el script**:
-   Asegúrate de tener un archivo `alojamientos.csv` en la misma carpeta que el script. Luego, ejecuta el script con:
-   ```bash
-   python alojamientos.py
-   ```
-   Esto generará un archivo `AlojamientosEditado.csv` en la misma carpeta, con los datos procesados y listos para su uso.
+1. **Funcionalidad**: Elimina columnas innecesarias, formatea valores numéricos y de texto, filtra registros, y añade una columna con la plataforma de publicación.
+2. **Ejecución**:
+   - Asegúrate de tener un archivo `alojamientos.csv` en la carpeta del script.
+   - Ejecuta:
+     ```bash
+     python alojamientos.py
+     ```
+   - Resultado: Se genera `AlojamientosEditado.csv` con los datos procesados.
 
-## Funcionalidades del Script
+### Generación de Reservas (`generadorDeReservas.py`)
 
-El script realiza las siguientes transformaciones en los datos:
-
-- **Elimina columnas** irrelevantes para simplificar el análisis de datos.
-- **Convierte valores numéricos** a cadenas de texto y reemplaza el punto decimal con coma.
-- **Reemplaza valores de texto** en las columnas de `room_type` y `country`, traduciendo términos al español.
-- **Capitaliza** los nombres de barrio y ciudad.
-- **Filtra filas** que no cumplen ciertos criterios, como tener calificaciones faltantes o no pertenecer a Valencia.
-- **Formatea fechas** en formato `dd-mm-yyyy` en las columnas `last_review_date` e `insert_date`.
-- **Genera valores aleatorios** en la columna `PUBLICADO_POR`, asignando una plataforma de publicación para cada alojamiento.
+1. **Funcionalidad**: Crea reservas aleatorias cumpliendo las siguientes reglas:
+   - Límite de 4 reservas por cliente y 20 por alojamiento.
+   - Verificación de superposición de fechas para evitar conflictos.
+2. **Ejecución**:
+   - Coloca el archivo `Alojamientos 3.0.xlsx` en la carpeta `Dataset Alojamientos`.
+   - Ejecuta:
+     ```bash
+     python generadorDeReservas.py
+     ```
+   - Resultado: Se genera `Hoja de Alquileres.xlsx` con las reservas.
 
 ## Contribución
 
-Si quieres contribuir, puedes hacer un fork de este repositorio y enviar un pull request. Las mejoras sugeridas incluyen:
-
-- Adicionar más opciones de limpieza de datos.
-- Modularizar el código en funciones para facilitar su reutilización.
+Si deseas mejorar este proyecto, haz un fork y envía un pull request. Puedes ayudar a modularizar el código o añadir más opciones de procesamiento de datos.
 
 ---
 
-Este `README.md` ofrece una guía clara para entender el propósito del proyecto y cómo usar el script. Recuerda cambiar el enlace al repositorio si decides publicarlo.
+Este `README.md` cubre todos los aspectos clave de ambos scripts de manera resumida.
